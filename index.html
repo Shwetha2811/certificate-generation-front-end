@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 Certificate Generator</h1>
+            <p>Upload a template and customize your certificates with movable tags</p>
+        </header>
+
+        <div class="main-content">
+            <div class="upload-section">
+                <h2>Upload Template</h2>
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <div class="upload-icon">📄</div>
+                        <p>Drag & drop your certificate template here</p>
+                        <p>or</p>
+                        <button class="upload-btn" onclick="document.getElementById('templateInput').click()">
+                            Choose File
+                        </button>
+                        <input type="file" id="templateInput" accept="image/*" style="display: none;">
+                    </div>
+                </div>
+                <div class="file-info" id="fileInfo" style="display: none;">
+                    <span id="fileName"></span>
+                    <button class="remove-btn" onclick="removeTemplate()">✕</button>
+                </div>
+            </div>
+
+            <div class="customization-section">
+                <h2>Customize Certificate</h2>
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="nameInput">Name:</label>
+                        <input type="text" id="nameInput" placeholder="Enter name" value="John Doe">
+                    </div>
+                    <div class="control-group">
+                        <label for="usnInput">USN:</label>
+                        <input type="text" id="usnInput" placeholder="Enter USN" value="12345">
+                    </div>
+                    <div class="control-group">
+                        <label for="fontSize">Font Size:</label>
+                        <input type="range" id="fontSize" min="12" max="72" value="24">
+                        <span id="fontSizeValue">24px</span>
+                    </div>
+                    <div class="control-group">
+                        <label for="fontColor">Font Color:</label>
+                        <input type="color" id="fontColor" value="#000000">
+                    </div>
+                </div>
+            </div>
+
+            <div class="preview-section">
+                <h2>Certificate Preview</h2>
+                <div class="certificate-container" id="certificateContainer">
+                    <div class="placeholder">
+                        <p>Upload a template to see preview</p>
+                    </div>
+                </div>
+                <div class="preview-controls">
+                    <button class="download-btn" id="downloadBtn" disabled onclick="downloadCertificate()">
+                        📥 Download Certificate
+                    </button>
+                    <button class="reset-btn" onclick="resetCertificate()">
+                        🔄 Reset
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
